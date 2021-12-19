@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Material Admin - Dashboard</title>
+        <title>Admin Panel</title>
 
         <!-- BEGIN META -->
         <meta charset="utf-8">
@@ -37,7 +37,7 @@
                         <li class="header-nav-brand" >
                             <div class="brand-holder">
                                 <a href="{{asset('html/dashboards/dashboard.html')}}">
-                                    <span class="text-lg text-bold text-primary">MATERIAL ADMIN</span>
+                                    <span class="text-lg text-bold text-primary">ADMIN PANEL</span>
                                 </a>
                             </div>
                         </li>
@@ -102,7 +102,7 @@
                             <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
                             
                                 <span class="profile-info">
-                                    Daniel Johnson
+                                    {{Auth::User()->name}}
                                     <small>Administrator</small>
                                 </span>
                             </a>
@@ -161,7 +161,7 @@
                     </div>
                     <div class="expanded">
                         <a href="{{URL('/')}}">
-                            <span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
+                            <span class="text-lg text-bold text-primary ">ADMIN PANEL</span>
                         </a>
                     </div>
                 </div>
@@ -172,7 +172,7 @@
 
                         <!-- BEGIN DASHBOARD -->
                         <li>
-                            <a href="{{URL('/')}}" class="active">
+                            <a href="{{URL('/')}}">
                                 <div class="gui-icon"><i class="md md-home"></i></div>
                                 <span class="title">Dashboard</span>
                             </a>
@@ -189,6 +189,7 @@
                             <ul>
                               <li><a href="{{URL('categories')}}" ><span class="title">Categories</span></a></li>
                               <li><a href="{{URL('products')}}" ><span class="title">Products</span></a></li>
+<li><a href="{{URL('reviews')}}" ><span class="title">Reviews</span></a></li>
                             </ul><!--end /submenu -->
                         </li><!--end /menu-li -->
                         <!-- END EMAIL -->
@@ -197,8 +198,12 @@
                         <li>
                             <a href="{{asset('html/layouts/builder.html')}}" >
                                 <div class="gui-icon"><i class="md md-web"></i></div>
-                                <span class="title">Layouts</span>
+                                <span class="title">Customers</span>
                             </a>
+                            <ul>
+                              <li><a href="{{URL('customers')}}" ><span class="title">List</span></a></li>
+                              <li><a href="{{URL('customers/groups')}}" ><span class="title">Groups</span></a></li>
+                            </ul><!--end /submenu -->
                         </li><!--end /menu-li -->
                         <!-- END DASHBOARD -->
 
@@ -206,10 +211,13 @@
                         <li class="gui-folder">
                             <a>
                                 <div class="gui-icon"><i class="fa fa-puzzle-piece fa-fw"></i></div>
-                                <span class="title">UI elements</span>
+                                <span class="title">Sales</span>
                             </a>
                             <!--start submenu -->
-                            
+                            <ul>
+                              <li><a href="{{URL('customers')}}" ><span class="title">Orders</span></a></li>
+                              <li><a href="{{URL('customers/groups')}}" ><span class="title">Promo codes</span></a></li>
+                            </ul><!--end /submenu -->
                         </li><!--end /menu-li -->
                         <!-- END UI -->
 
@@ -237,7 +245,7 @@
 
                     <div class="menubar-foot-panel">
                         <small class="no-linebreak hidden-folded">
-                            <span class="opacity-75">Copyright &copy; 2014</span> <strong>CodeCovers</strong>
+                            <span class="opacity-75">Copyright &copy; 2020</span> <strong>CodeCovers</strong>
                         </small>
                     </div>
                 </div><!--end .menubar-scroll-panel-->
@@ -248,41 +256,11 @@
             <div class="offcanvas">
 
                 <!-- BEGIN OFFCANVAS SEARCH -->
-                <div id="offcanvas-search" class="offcanvas-pane width-8">
-                    <div class="offcanvas-head">
-                        <header class="text-primary">Search</header>
-                        <div class="offcanvas-tools">
-                            <a class="btn btn-icon-toggle btn-default-light pull-right" data-dismiss="offcanvas">
-                                <i class="md md-close"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="offcanvas-body no-padding">
-                        
-                    </div><!--end .offcanvas-body -->
-                </div><!--end .offcanvas-pane -->
+                
                 <!-- END OFFCANVAS SEARCH -->
 
                 <!-- BEGIN OFFCANVAS CHAT -->
-                <div id="offcanvas-chat" class="offcanvas-pane style-default-light width-12">
-                    <div class="offcanvas-head style-default-bright">
-                        <header class="text-primary">Chat with Ann Laurens</header>
-                        <div class="offcanvas-tools">
-                            <a class="btn btn-icon-toggle btn-default-light pull-right" data-dismiss="offcanvas">
-                                <i class="md md-close"></i>
-                            </a>
-                            <a class="btn btn-icon-toggle btn-default-light pull-right" href="#offcanvas-search" data-toggle="offcanvas" data-backdrop="false">
-                                <i class="md md-arrow-back"></i>
-                            </a>
-                        </div>
-                    
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="list-chats">
-                    
-                        </ul>
-                    </div><!--end .offcanvas-body -->
-                </div><!--end .offcanvas-pane -->
+                
                 <!-- END OFFCANVAS CHAT -->
 
             </div><!--end .offcanvas-->

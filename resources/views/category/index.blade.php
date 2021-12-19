@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Product
+    Category
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <header>
-                                {{ __('Product') }}
+                                {{ __('Category') }}
                             </header>
 
                              <div class="float-right">
-                                <a href="{{ route('products.create') }}" class="btn ink-reaction btn-raised btn-primary float-right"  data-placement="left">
+                                <a href="{{ route('categories.create') }}" class="btn ink-reaction btn-raised btn-primary float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -38,30 +38,26 @@
                                         
 										<th>Name</th>
 										<th>Description</th>
-										<th>Quantity</th>
-										<th>Price</th>
+										<th>Parent Id</th>
 										<th>Image</th>
-										<th>Category Id</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $product)
+                                    @foreach ($categories as $category)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $product->name }}</td>
-											<td>{{ $product->description }}</td>
-											<td>{{ $product->quantity }}</td>
-											<td>{{ $product->price }}</td>
-											<td>{{ $product->image }}</td>
-											<td>{{ $product->category_id }}</td>
+											<td>{{ $category->name }}</td>
+											<td>{{ $category->description }}</td>
+											<td>{{ $category->parent_id }}</td>
+											<td>{{ $category->image }}</td>
 
                                             <td>
-                                                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary ink-reaction btn-raised" href="{{ route('products.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success ink-reaction btn-raised " href="{{ route('products.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary ink-reaction btn-raised" href="{{ route('categories.show',$category->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success ink-reaction btn-raised " href="{{ route('categories.edit',$category->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm ink-reaction btn-raised "><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -74,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $products->links() !!}
+                {!! $categories->links() !!}
             </div>
         </div>
     </div>

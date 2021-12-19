@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $product->name ?? 'Show Product' }}
+    {{ $category->name ?? 'Show Category' }}
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-head style-primary">
                         <div class="float-left">
-                            <span class="card-title">Show Product</span>
+                            <span class="card-title">Show Category</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
                         </div>
                     </div>
 
@@ -22,27 +22,19 @@
                         
                         <div class="form-group">
                             <strong>Name:</strong>
-                            {{ $product->name }}
+                            {{ $category->name }}
                         </div>
                         <div class="form-group">
                             <strong>Description:</strong>
-                            {{ $product->description }}
+                            {{ $category->description }}
                         </div>
                         <div class="form-group">
-                            <strong>Quantity:</strong>
-                            {{ $product->quantity }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Price:</strong>
-                            {{ $product->price }}
+                            <strong>Parent Id:</strong>
+                            {{ $category->parent_id }}
                         </div>
                         <div class="form-group">
                             <strong>Image:</strong>
-                            {{ $product->image }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Category Id:</strong>
-                            {{ $product->category_id }}
+                            {{ $category->image }}
                         </div>
 
                     </div>

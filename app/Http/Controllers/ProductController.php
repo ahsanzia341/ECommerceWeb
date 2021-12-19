@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use DB;
 
 /**
  * Class ProductController
@@ -19,7 +21,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate();
-
         return view('product.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
     }
@@ -31,8 +32,9 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $categories = Category::pluck('name','id');
         $product = new Product();
-        return view('product.create', compact('product'));
+        return view('product.create', compact('product','categories'));
     }
 
     /**
@@ -45,11 +47,11 @@ class ProductController extends Controller
     {
         request()->validate(Product::$rules);
         $file = $request->file('image');
-        $destinationPath = 'uploads';
-              $file->move($destinationPath,$file->getClientOriginalName());
-        $request->image = 'uploads/'.$file->getClientOriginalName();
         $product = Product::create($request->all());
-
+        $product-> image = $file->getClientOriginalName();
+        $product->save();
+        $destinationPath = 'storage/products/'.$product->id.'/';
+        $file->move($destinationPath,$file->getClientOriginalName());
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
     }

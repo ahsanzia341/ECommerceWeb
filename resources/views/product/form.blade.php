@@ -1,5 +1,4 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
+
         
         <div class="form-group floating-label">
             {{ Form::label('name') }}
@@ -23,12 +22,16 @@
         </div>
         <div class="form-group floating-label">
             {{ Form::label('image') }}
-            {{ Form::text('image', $product->image, ['class' => 'form-control' . ($errors->has('image') ? ' is-invalid' : ''), 'placeholder' => 'Image']) }}
+            {{ Form::file('image', ['class' => 'form-control' . ($errors->has('image') ? ' is-invalid' : ''), 'placeholder' => 'Image']) }}
             {!! $errors->first('image', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+        <div class="form-group floating-label">
+            {{ Form::label('category_id') }}
+            {{ Form::select('category_id', $categories, null, ['class' => 'form-control' . ($errors->has('category_id') ? ' is-invalid' : ''), 'placeholder' => 'Category Id']) }}
+            {!! $errors->first('category_id', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
 
-    </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn ink-reaction btn-raised btn-primary">Submit</button>
     </div>
 </div>

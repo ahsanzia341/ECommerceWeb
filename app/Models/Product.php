@@ -13,7 +13,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property $quantity
  * @property $price
  * @property $image
+ * @property $updated_at
+ * @property $created_at
+ * @property $category_id
  *
+ * @property Category $category
  * @property InvoiceItem[] $invoiceItems
  * @property ProductReview[] $productReviews
  * @package App
@@ -26,6 +30,8 @@ class Product extends Model
 		'name' => 'required',
 		'quantity' => 'required',
 		'price' => 'required',
+		'category_id' => 'required',
+        'image' => 'required'
     ];
 
     protected $perPage = 20;
@@ -35,9 +41,17 @@ class Product extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','description','quantity','price','image'];
+    protected $fillable = ['name','description','quantity','price','image','category_id'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function category()
+    {
+        return $this->hasOne('App\Models\Category', 'id', 'category_id');
+    }
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
