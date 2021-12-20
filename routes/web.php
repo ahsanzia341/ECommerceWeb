@@ -12,10 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+    Route::resource('products', App\Http\Controllers\ProductController::class);
+    Route::resource('categories', App\Http\Controllers\CategoryController::class);
+    Route::resource('customers', App\Http\Controllers\CustomerController::class);
+    Route::resource('promo-codes', App\Http\Controllers\PromoCodeController::class);
+});
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-Route::resource('products', App\Http\Controllers\ProductController::class);
-Route::resource('categories', App\Http\Controllers\CategoryController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

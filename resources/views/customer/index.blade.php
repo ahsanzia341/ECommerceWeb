@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Product
+    Customer
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <header>
-                                {{ __('Product') }}
+                                {{ __('Customer') }}
                             </header>
 
                              <div class="float-right">
-                                <a href="{{ route('products.create') }}" class="btn ink-reaction btn-raised btn-primary float-right"  data-placement="left">
+                                <a href="{{ route('customers.create') }}" class="btn ink-reaction btn-raised btn-primary float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,32 +36,26 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Email</th>
 										<th>Name</th>
-										<th>Description</th>
-										<th>Quantity</th>
-										<th>Price</th>
-										<th>Image</th>
-										<th>Category Id</th>
+										<th>Is Verified</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $product)
+                                    @foreach ($customers as $customer)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $product->name }}</td>
-											<td>{{ $product->description }}</td>
-											<td>{{ $product->quantity }}</td>
-											<td>{{ $product->price }}</td>
-											<td>{{ $product->image }}</td>
-											<td>{{ $product->category->name }}</td>
+											<td>{{ $customer->email }}</td>
+											<td>{{ $customer->name }}</td>
+											<td>{{ $customer->is_verified }}</td>
 
                                             <td>
-                                                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary ink-reaction btn-raised" href="{{ route('products.show',$product->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success ink-reaction btn-raised " href="{{ route('products.edit',$product->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('customers.destroy',$customer->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary ink-reaction btn-raised" href="{{ route('customers.show',$customer->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success ink-reaction btn-raised " href="{{ route('customers.edit',$customer->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm ink-reaction btn-raised "><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -74,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $products->links() !!}
+                {!! $customers->links() !!}
             </div>
         </div>
     </div>

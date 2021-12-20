@@ -50,53 +50,7 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="headerbar-right">
-                    <ul class="header-nav header-nav-options">
-                        <li>
-                            <!-- Search form -->
-                        
-                        </li>
-                        <li class="dropdown hidden-xs">
-                            <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
-                                <i class="fa fa-bell"></i><sup class="badge style-danger">4</sup>
-                            </a>
-                            
-                        </li><!--end .dropdown -->
-                        <li class="dropdown hidden-xs">
-                            <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
-                                <i class="fa fa-area-chart"></i>
-                            </a>
-                            <ul class="dropdown-menu animation-expand">
-                                <li class="dropdown-header">Server load</li>
-                                <li class="dropdown-progress">
-                                    <a href="javascript:void(0);">
-                                        <div class="dropdown-label">
-                                            <span class="text-light">Server load <strong>Today</strong></span>
-                                            <strong class="pull-right">93%</strong>
-                                        </div>
-                                        <div class="progress"><div class="progress-bar progress-bar-danger" style="width: 93%"></div></div>
-                                    </a>
-                                </li><!--end .dropdown-progress -->
-                                <li class="dropdown-progress">
-                                    <a href="javascript:void(0);">
-                                        <div class="dropdown-label">
-                                            <span class="text-light">Server load <strong>Yesterday</strong></span>
-                                            <strong class="pull-right">30%</strong>
-                                        </div>
-                                        <div class="progress"><div class="progress-bar progress-bar-success" style="width: 30%"></div></div>
-                                    </a>
-                                </li><!--end .dropdown-progress -->
-                                <li class="dropdown-progress">
-                                    <a href="javascript:void(0);">
-                                        <div class="dropdown-label">
-                                            <span class="text-light">Server load <strong>Lastweek</strong></span>
-                                            <strong class="pull-right">74%</strong>
-                                        </div>
-                                        <div class="progress"><div class="progress-bar progress-bar-warning" style="width: 74%"></div></div>
-                                    </a>
-                                </li><!--end .dropdown-progress -->
-                            </ul><!--end .dropdown-menu -->
-                        </li><!--end .dropdown -->
-                    </ul><!--end .header-nav-options -->
+                    
                     <ul class="header-nav header-nav-profile">
                         <li class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
@@ -195,8 +149,8 @@
                         <!-- END EMAIL -->
 
                         <!-- BEGIN DASHBOARD -->
-                        <li>
-                            <a href="{{asset('html/layouts/builder.html')}}" >
+                        <li class="gui-folder">
+                            <a>
                                 <div class="gui-icon"><i class="md md-web"></i></div>
                                 <span class="title">Customers</span>
                             </a>
@@ -216,7 +170,7 @@
                             <!--start submenu -->
                             <ul>
                               <li><a href="{{URL('customers')}}" ><span class="title">Orders</span></a></li>
-                              <li><a href="{{URL('customers/groups')}}" ><span class="title">Promo codes</span></a></li>
+                              <li><a href="{{URL('promo-codes')}}" ><span class="title">Promo codes</span></a></li>
                             </ul><!--end /submenu -->
                         </li><!--end /menu-li -->
                         <!-- END UI -->
@@ -272,6 +226,7 @@
         <!-- BEGIN JAVASCRIPT -->
         <script src="{{asset('assets/js/libs/jquery/jquery-1.11.2.min.js')}}"></script>
         <script src="{{asset('assets/js/libs/jquery/jquery-migrate-1.2.1.min.js')}}"></script>
+        <script src="{{asset('assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
         <script src="{{asset('assets/js/libs/bootstrap/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/js/libs/spin.js/spin.min.js')}}"></script>
         <script src="{{asset('assets/js/libs/autosize/jquery.autosize.min.js')}}"></script>
@@ -298,6 +253,8 @@
         <script src="{{asset('assets/js/core/demo/Demo.js')}}"></script>
         <script src="{{asset('assets/js/core/demo/DemoDashboard.js')}}"></script>
         <!-- END JAVASCRIPT -->
-
+        <script type="text/javascript">
+            @yield('javascript')
+        </script>
     </body>
 </html>
