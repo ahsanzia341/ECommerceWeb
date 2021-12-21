@@ -3,7 +3,7 @@
     @include('css.datatables_css')
 @endsection
 @section('template_title')
-    Category
+    Color
 @endsection
 
 @section('content')
@@ -15,11 +15,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <header>
-                                {{ __('Category') }}
+                                {{ __('Color') }}
                             </header>
                             <div class="tools">
                                 <div class="btn-group">
-                                    <a href="{{ route('categories.create') }}" class="btn ink-reaction btn-raised btn-default float-right">
+                                    <a href="{{ route('colors.create') }}" class="btn ink-reaction btn-raised btn-default float-right">
                                     {{ __('Create New') }}
                                     </a>
                                 </div>
@@ -40,27 +40,21 @@
                                         <th>No</th>
                                         
 										<th>Name</th>
-										<th>Description</th>
-										<th>Parent Id</th>
-										<th>Image</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($colors as $color)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $category->name }}</td>
-											<td>{{ $category->description }}</td>
-											<td>{{ $category->parent_id }}</td>
-											<td>{{ $category->image }}</td>
+											<td>{{ $color->name }}</td>
 
                                             <td>
-                                                <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary ink-reaction btn-raised" href="{{ route('categories.show',$category->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success ink-reaction btn-raised " href="{{ route('categories.edit',$category->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('colors.destroy',$color->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary ink-reaction btn-raised" href="{{ route('colors.show',$color->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success ink-reaction btn-raised " href="{{ route('colors.edit',$color->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm ink-reaction btn-raised "><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -73,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $categories->links() !!}
+                {!! $colors->links() !!}
             </div>
         </div>
     </div>

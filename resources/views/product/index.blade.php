@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('css')
+    @include('css.datatables_css')
+@endsection
 @section('template_title')
     Product
 @endsection
@@ -9,18 +11,19 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-head">
+                    <div class="card-head style-primary">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <header>
                                 {{ __('Product') }}
                             </header>
-
-                             <div class="float-right">
-                                <a href="{{ route('products.create') }}" class="btn ink-reaction btn-raised btn-primary float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
+                            <div class="tools">
+                                <div class="btn-group">
+                                    <a href="{{ route('products.create') }}" class="btn ink-reaction btn-raised btn-default float-right">
+                                    {{ __('Create New') }}
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -31,7 +34,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table id="table" class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
@@ -42,6 +45,9 @@
 										<th>Price</th>
 										<th>Image</th>
 										<th>Category Id</th>
+										<th>Discount</th>
+										<th>Is Featured</th>
+										<th>Color Id</th>
 
                                         <th></th>
                                     </tr>
@@ -56,7 +62,10 @@
 											<td>{{ $product->quantity }}</td>
 											<td>{{ $product->price }}</td>
 											<td>{{ $product->image }}</td>
-											<td>{{ $product->category->name }}</td>
+											<td>{{ $product->category_id }}</td>
+											<td>{{ $product->discount }}</td>
+											<td>{{ $product->is_featured }}</td>
+											<td>{{ $product->color_id }}</td>
 
                                             <td>
                                                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
@@ -78,4 +87,12 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    @include('js.datatables_js')
+@endsection
+
+@section('javascript')
+    $('#table').DataTable();
+    
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Customer
+    Update Color
 @endsection
 
 @section('content')
@@ -13,14 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-head style-primary">
-                        <header>Update Customer</header>
+                        <header>Update Color</header>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('customers.update', $customer->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('colors.update', $color->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('customer.form')
+                            @include('color.form')
 
                         </form>
                     </div>

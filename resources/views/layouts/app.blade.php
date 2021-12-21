@@ -18,6 +18,7 @@
         <link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/material-design-iconic-font.min.css?1421434286')}}" />
         <link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/rickshaw/rickshaw.css?1422792967')}}" />
         <link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/morris/morris.core.css?1420463396')}}" />
+        @yield('css')
         <!-- END STYLESHEETS -->
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -173,6 +174,17 @@
                               <li><a href="{{URL('promo-codes')}}" ><span class="title">Promo codes</span></a></li>
                             </ul><!--end /submenu -->
                         </li><!--end /menu-li -->
+                        <li class="gui-folder">
+                            <a>
+                                <div class="gui-icon"><i class="fa fa-puzzle-piece fa-fw"></i></div>
+                                <span class="title">Settings</span>
+                            </a>
+                            <!--start submenu -->
+                            <ul>
+                              <li><a href="{{URL('colors')}}" ><span class="title">Colors</span></a></li>
+                              <li><a href="{{URL('promo-codes')}}" ><span class="title">Sizes</span></a></li>
+                            </ul><!--end /submenu -->
+                        </li><!--end /menu-li -->
                         <!-- END UI -->
 
                         <!-- BEGIN TABLES -->
@@ -252,6 +264,7 @@
         <script src="{{asset('assets/js/core/source/AppVendor.js')}}"></script>
         <script src="{{asset('assets/js/core/demo/Demo.js')}}"></script>
         <script src="{{asset('assets/js/core/demo/DemoDashboard.js')}}"></script>
+        @yield('js')
         <!-- END JAVASCRIPT -->
         <script type="text/javascript">
             @yield('javascript')

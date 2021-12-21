@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Color;
+
 use Illuminate\Http\Request;
 use DB;
 
@@ -34,7 +36,8 @@ class ProductController extends Controller
     {
         $categories = Category::pluck('name','id');
         $product = new Product();
-        return view('product.create', compact('product','categories'));
+        $colors = Color::pluck('name','id');
+        return view('product.create', compact('product','categories','colors'));
     }
 
     /**

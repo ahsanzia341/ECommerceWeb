@@ -10,9 +10,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-head style-primary">
-                        <div class="float-left">
+                        <header>
                             <span class="card-title">Show Promo Code</span>
-                        </div>
+                        </header>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('promo-codes.index') }}"> Back</a>
                         </div>
@@ -35,6 +35,10 @@
                         <div class="form-group">
                             <strong>End Date:</strong>
                             {{ $promoCode->end_date }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Discount:</strong>
+                            {{ $promoCode->discount }}
                         </div>
 
                     </div>

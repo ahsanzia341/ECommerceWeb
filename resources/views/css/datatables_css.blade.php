@@ -1,0 +1,3 @@
+<link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989')}}" />
+		<link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990')}}" />
+		<link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990')}}" />

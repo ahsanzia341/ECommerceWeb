@@ -10,9 +10,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-head style-primary">
-                        <div class="float-left">
+                        <header>
                             <span class="card-title">Show Category</span>
-                        </div>
+                        </header>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
                         </div>

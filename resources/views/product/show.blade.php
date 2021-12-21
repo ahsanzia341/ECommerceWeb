@@ -10,9 +10,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-head style-primary">
-                        <div class="float-left">
+                        <header>
                             <span class="card-title">Show Product</span>
-                        </div>
+                        </header>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
                         </div>
@@ -43,6 +43,18 @@
                         <div class="form-group">
                             <strong>Category Id:</strong>
                             {{ $product->category_id }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Discount:</strong>
+                            {{ $product->discount }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Is Featured:</strong>
+                            {{ $product->is_featured }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Color Id:</strong>
+                            {{ $product->color_id }}
                         </div>
 
                     </div>

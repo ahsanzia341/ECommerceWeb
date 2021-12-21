@@ -1,26 +1,25 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Customer
+    Create Color
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="">
+        <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-head style-primary">
-                        <header>Update Customer</header>
+                        <header>Create Color</header>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('customers.update', $customer->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ route('colors.store') }}"  role="form" enctype="multipart/form-data" class="form floating-label">
                             @csrf
 
-                            @include('customer.form')
+                            @include('color.form')
 
                         </form>
                     </div>
