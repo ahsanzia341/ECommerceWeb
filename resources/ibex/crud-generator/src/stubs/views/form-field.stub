@@ -1,0 +1,6 @@
+        <div class="form-group floating-label">
+            {{ Form::text('{{column}}', ${{modelNameLowerCase}}->{{column}}, ['class' => 'form-control' . ($errors->has('{{column}}') ? ' is-invalid' : '')]) }}
+            <label for="{{column}}">{{title}}</label>
+            {!! $errors->first('{{column}}', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+

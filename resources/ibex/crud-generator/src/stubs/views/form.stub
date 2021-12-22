@@ -1,0 +1,6 @@
+
+        {{form}}
+    <div class="box-footer mt20">
+        <button type="submit" class="btn ink-reaction btn-raised btn-primary">Submit</button>
+    </div>
+</div>
