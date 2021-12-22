@@ -18,6 +18,7 @@
         <link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/material-design-iconic-font.min.css?1421434286')}}" />
         <link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/rickshaw/rickshaw.css?1422792967')}}" />
         <link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/morris/morris.core.css?1420463396')}}" />
+        <link type="text/css" rel="stylesheet" href="{{asset('assets/css/theme-default/libs/bootstrap-datepicker/datepicker3.css?1424887858')}}">
         @yield('css')
         <!-- END STYLESHEETS -->
 
@@ -170,13 +171,13 @@
                             </a>
                             <!--start submenu -->
                             <ul>
-                              <li><a href="{{URL('customers')}}" ><span class="title">Orders</span></a></li>
+                              <li><a href="{{URL('invoices')}}" ><span class="title">Orders</span></a></li>
                               <li><a href="{{URL('promo-codes')}}" ><span class="title">Promo codes</span></a></li>
                             </ul><!--end /submenu -->
                         </li><!--end /menu-li -->
                         <li class="gui-folder">
                             <a>
-                                <div class="gui-icon"><i class="fa fa-puzzle-piece fa-fw"></i></div>
+                                <div class="gui-icon"><i class="md md-settings fa-fw"></i></div>
                                 <span class="title">Settings</span>
                             </a>
                             <!--start submenu -->

@@ -40,6 +40,18 @@
                             <strong>Discount:</strong>
                             {{ $promoCode->discount }}
                         </div>
+                        <div class="form-group">
+                            <strong>Max Discount:</strong>
+                            {{ $promoCode->max_discount }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Is Percentage:</strong>
+                            {{ $promoCode->is_percentage }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Minmum Amount Required:</strong>
+                            {{ $promoCode->minmum_amount_required }}
+                        </div>
 
                     </div>
                 </div>

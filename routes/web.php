@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
     Route::resource('promo-codes', App\Http\Controllers\PromoCodeController::class);
     Route::resource('colors', App\Http\Controllers\ColorController::class);
+    Route::resource('invoices', App\Http\Controllers\InvoiceController::class);
 });
 
 Auth::routes();

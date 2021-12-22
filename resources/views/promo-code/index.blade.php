@@ -44,6 +44,9 @@
 										<th>Start Date</th>
 										<th>End Date</th>
 										<th>Discount</th>
+										<th>Max Discount</th>
+										<th>Is Percentage</th>
+										<th>Minmum Amount Required</th>
 
                                         <th></th>
                                     </tr>
@@ -58,6 +61,9 @@
 											<td>{{ $promoCode->start_date }}</td>
 											<td>{{ $promoCode->end_date }}</td>
 											<td>{{ $promoCode->discount }}</td>
+											<td>{{ $promoCode->max_discount }}</td>
+											<td>{{ $promoCode->is_percentage }}</td>
+											<td>{{ $promoCode->minmum_amount_required }}</td>
 
                                             <td>
                                                 <form action="{{ route('promo-codes.destroy',$promoCode->id) }}" method="POST">

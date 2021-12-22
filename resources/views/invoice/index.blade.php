@@ -17,13 +17,7 @@
                             <header>
                                 {{ __('Invoice') }}
                             </header>
-                            <div class="tools">
-                                <div class="btn-group">
-                                    <a href="{{ route('invoices.create') }}" class="btn ink-reaction btn-raised btn-default float-right">
-                                    {{ __('Create New') }}
-                                    </a>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -39,7 +33,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Customer Id</th>
+										<th>Customer</th>
 										<th>Created Date</th>
 										<th>Status</th>
 										<th>Total Amount</th>
@@ -52,7 +46,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $invoice->customer_id }}</td>
+											<td>{{ $invoice->customer->name }}</td>
 											<td>{{ $invoice->created_date }}</td>
 											<td>{{ $invoice->status }}</td>
 											<td>{{ $invoice->total_amount }}</td>
