@@ -16,7 +16,7 @@
                         <header>Update Promo Code</header>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('promo-codes.update', $promoCode->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" class ="form floating-label" action="{{ route('promo-codes.update', $promoCode->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

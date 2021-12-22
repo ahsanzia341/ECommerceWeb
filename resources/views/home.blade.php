@@ -9,7 +9,7 @@
 									<div class="card-body no-padding">
 										<div class="alert alert-callout alert-info no-margin">
 											<strong class="pull-right text-success text-lg"><i class="md md-trending-up"></i></strong>
-											<strong class="text-xl">$ 32,829</strong><br/>
+											<strong class="text-xl">{{$total_sales}} Rs</strong><br/>
 											<span class="opacity-50">Total Sales</span>
 											<div class="stick-bottom-left-right">
 												<div class="height-2 sparkline-revenue" data-line-color="#bdc1c1"></div>
@@ -43,7 +43,7 @@
 									<div class="card-body no-padding">
 										<div class="alert alert-callout alert-danger no-margin">
 											<strong class="pull-right text-danger text-lg"><i class="md md-trending-down"></i></strong>
-											<strong class="text-xl">42.90%</strong><br/>
+											<strong class="text-xl">{{$total_orders}}</strong><br/>
 											<span class="opacity-50">Total Orders</span>
 											<div class="stick-bottom-left-right">
 												<div class="progress progress-hairline no-margin">
@@ -74,16 +74,15 @@
 						<div class="row">
 
 							<!-- BEGIN SITE ACTIVITY -->
-							<div class="col-md-5">
+							<div class="col-md-6">
 								<div class="card ">
 									<div class="row">
 										<div>
 											<div class="card-head">
-												<header>Site activity</header>
+												<header class="text-primary">{{ $users_chart->options['chart_title'] }}</header>
 											</div><!--end .card-head -->
-											<div class="card-body height-8">
-												<div id="flot-visitors-legend" class="flot-legend-horizontal stick-top-right no-y-padding"></div>
-												<div id="flot-visitors" class="flot height-7" data-title="Activity entry" data-color="#7dd8d2,#0aa89e"></div>
+											<div class="card-body">
+                    							{!! $users_chart->renderHtml() !!}
 											</div><!--end .card-body -->
 										</div><!--end .col -->
 										
@@ -93,25 +92,15 @@
 							<!-- END SITE ACTIVITY -->
 
 							<!-- BEGIN SERVER STATUS -->
-							<div class="col-md-3">
+							<div class="col-md-6">
 								<div class="card">
 									<div class="card-head">
-										<header class="text-primary">Server status</header>
+										<header class="text-primary">{{ $sales_chart->options['chart_title'] }}</header>
 									</div><!--end .card-head -->
-									<div class="card-body height-4">
-										<div class="pull-right text-center">
-											<em class="text-primary">Temperature</em>
-											<br/>
-											<div id="serverStatusKnob" class="knob knob-shadow knob-primary knob-body-track size-2">
-												<input type="text" class="dial" data-min="0" data-max="100" data-thickness=".09" value="50" data-readOnly=true>
-											</div>
-										</div>
+									<div class="card-body">
+										{!! $sales_chart->renderHtml() !!}
 									</div><!--end .card-body -->
-									<div class="card-body height-4 no-padding">
-										<div class="stick-bottom-left-right">
-											<div id="rickshawGraph" class="height-4" data-color1="#0aa89e" data-color2="rgba(79, 89, 89, 0.2)"></div>
-										</div>
-									</div><!--end .card-body -->
+									
 								</div><!--end .card -->
 							</div><!--end .col -->
 							<!-- END SERVER STATUS -->
@@ -329,4 +318,13 @@
 
 						</div><!--end .row -->
 
+@endsection
+@section('js')
+	{!! $users_chart->renderChartJsLibrary() !!}
+	{!! $sales_chart->renderChartJsLibrary()  !!}
+@endsection
+@section('javascript')
+	
+	{!! $users_chart->renderJs() !!}
+	{!! $sales_chart->renderJs() !!}
 @endsection
